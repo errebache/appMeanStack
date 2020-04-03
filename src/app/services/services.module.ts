@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { TagsService } from "./services";
+import { TasksService } from "./services"
 
 
 @
@@ -10,6 +11,6 @@ NgModule({
   ],
   exports: [
   ],
-  providers: [TagsService],
+  providers: [TagsService,TasksService],
 })
 export class ServicesModule { }

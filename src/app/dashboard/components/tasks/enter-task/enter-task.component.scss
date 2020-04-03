@@ -1,0 +1,25 @@
+app-enter-task {
+    display: inline-flex;
+    align-items: center;
+    flex: auto;
+    margin-left: 20px;
+    .title-input {
+        display: block;
+        flex-grow: 1;
+        margin-right: 20px;
+        border: none;
+        background-color: transparent;
+        color: rgba(64, 64, 64, .56);
+    }
+    button{
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        background-color: #3699cb;
+        color: #fff;
+        font-weight: 500;
+        text-transform: uppercase;
+        transition: all .3s ease;
+        text-decoration: none;
+    }
+}

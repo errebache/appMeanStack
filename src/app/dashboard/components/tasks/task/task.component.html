@@ -1,0 +1,5 @@
+<app-checkbox [checked]="task.done" 
+(outCheck)=updateTask($event)>
+</app-checkbox>
+<div class="title">{{ task.title }}</div>
+

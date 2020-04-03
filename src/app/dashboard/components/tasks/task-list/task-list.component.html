@@ -1,0 +1,13 @@
+ <app-toggle [buttonList]="taskFilterTypes"
+    [activeButton] ="activeTaskFilterType"
+    (outActivate)="activateFilterType($event)"></app-toggle>
+
+    <app-enter-task (inputTask)="addTask($event)"></app-enter-task>
+
+    <div class="task">
+        <app-task *ngFor="let task of filteredTasks"
+                  [task]="task"
+                  (outUpdateTask)="updateTask($event)"></app-task>
+    </div>
+
+
