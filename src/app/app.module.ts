@@ -2,13 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent} from './app.component';
-import {ActivitiesComponent,EffortsComponent,CommentsComponent,TasksComponent,TagsComponent,
-        ProjectComponent,ProjectsDashboardComponent,UserComponent} from './dashboard/components';
+import {ActivitiesComponent,EffortsComponent,CommentsComponent,TagsComponent,
+        ProjectComponent,ProjectsDashboardComponent,UserComponent,EnterTaskComponent,TaskComponent} from './dashboard/components';
 import { LoginComponent } from './auth/components';
 
 import { ServicesModule} from './services/services.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AngularMaterialModule} from './angular-material-module';
+
+import { CheckboxComponent,ToggleComponent } from './shared/components/components';
+import { TaskListComponent } from './dashboard/components/tasks/task-list/task-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +20,15 @@ import { AngularMaterialModule} from './angular-material-module';
     EffortsComponent,
     TagsComponent,
     CommentsComponent,
-    TasksComponent,
     LoginComponent,
     ProjectComponent,
     ProjectsDashboardComponent,
-    UserComponent
+    UserComponent,
+    TaskComponent,
+    EnterTaskComponent,
+    CheckboxComponent,
+    TaskListComponent,
+    ToggleComponent
   ],
   imports: [
     BrowserModule,

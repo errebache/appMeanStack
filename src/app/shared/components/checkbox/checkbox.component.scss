@@ -1,0 +1,52 @@
+app-checkbox {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    align-self: stretch;
+    border-right: 1px solid rgba(0, 0, 0, .06);
+    background-color: #00000005;
+    margin-right: 20px;
+    .label{
+        display: block;
+        position: relative;
+        cursor: pointer;
+        .text {
+            display: block;
+            margin-left: 30px;
+            &:before{
+                content: "✓";
+                font-family: entypo, sans-serif;
+                display: block;
+                position: absolute;
+                left: -2px;
+                top: -20px;
+                font-size: 50px;
+                color: transparent;
+                transition: all .2s ease;
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+            }
+        }
+      
+    }
+    .input {
+        display: block;
+        opacity: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        &:checked {
+            + {
+                .text {
+                    &:before {
+                        color: #68be60;
+                        -webkit-transform: scale(1);
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+    }
+}
