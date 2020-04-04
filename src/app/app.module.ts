@@ -12,6 +12,8 @@ import { AngularMaterialModule} from './angular-material-module';
 
 import { CheckboxComponent,ToggleComponent } from './shared/components/components';
 import { TaskListComponent } from './dashboard/components/tasks/task-list/task-list.component';
+import { TaskListContainerComponent } from './dashboard/components/container/task-list-container/task-list-container.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { TaskListComponent } from './dashboard/components/tasks/task-list/task-l
     EnterTaskComponent,
     CheckboxComponent,
     TaskListComponent,
-    ToggleComponent
+    ToggleComponent,
+    TaskListContainerComponent
   ],
   imports: [
     BrowserModule,
     ServicesModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule
   ],
