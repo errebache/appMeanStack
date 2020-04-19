@@ -1,0 +1,17 @@
+app-navigation-section {
+    display: block;
+    padding: 35px 30px 30px;
+    border-top: 3px solid rgba(0, 0, 0, .1);
+    .title {
+        color: hsla(0, 0%, 100%, .23);
+        font-size: 20px;
+        line-height: 1;
+        font-weight: 900;
+        margin-bottom: 15px;
+    }
+    .item-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}

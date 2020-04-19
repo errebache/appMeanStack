@@ -10,7 +10,7 @@ import { TasksService } from '../../../../services/services';
 })
 export class TaskListComponent {
   
-  @Input() tasks: Task[];
+  @Input() tasks : Task[];
   @Input() taskFilterTypes: TaskListFilterType[];
   @Input() activeTaskFilterType: TaskListFilterType;
   @Output() outAddTask = new  EventEmitter<string>();
@@ -18,7 +18,7 @@ export class TaskListComponent {
   @Output() outUpdateTask = new EventEmitter<Task>();
 
   constructor(private taskService: TasksService) {
-    this.tasks = taskService.getTasks();
+    
   }
 
 

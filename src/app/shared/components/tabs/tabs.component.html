@@ -1,0 +1,9 @@
+<ul class="tab-list">
+    <li *ngFor="let tab of tabs"
+        class="tab-list-item">
+      <button class="tab-button"
+              [class.tab-button-active]="tab.id === activeTab.id"
+              (click)="activateTab(tab)">{{tab.title}}</button>
+    </li>
+</ul>
+  
