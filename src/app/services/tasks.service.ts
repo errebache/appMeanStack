@@ -1,38 +1,58 @@
 import { Injectable } from "@angular/core"
 import { Task } from '../models/task';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 
 export class  TasksService {
 
-    private tasks: Task[] = [
-        {id: 1, title: 'Task 1', done: false},
-        {id: 2, title: 'Task 2', done: false},
-        {id: 3, title: 'Task 3', done: true},
-        {id: 4, title: 'Task 4', done: false}
-      ];
+     url: string = "http://localhost:3000/tasks";
+    // private tasks: Task[] = [
+    //     {id: 1, title: 'Task 1', done: false},
+    //     {id: 2, title: 'Task 2', done: false},
+    //     {id: 3, title: 'Task 3', done: true},
+    //     {id: 4, title: 'Task 4', done: false}
+    //   ];
       
-     constructor() {
+    private tasks = new BehaviorSubject<Task[]>([]);
+  
+
+     constructor(private http: HttpClient) {
 
      }
-  
-      getTasks():Task[] {
-          return this.tasks.slice();
+     
+     private loadTasks() {
+       this.http.get<Task[]>(`${this.url}/list`)
+       .subscribe((tasks) => this.tasks.next(tasks));
+     }
+
+
+      getTasks(): Observable<Task[]> {
+          return this.tasks.asObservable();
       }
 
 
       addTasks(task:Task){
-        this.tasks.push({
-            ...task,
-            id:this.tasks.length + 1
-        })
+         return this.http
+         .post(`${this.url}/add`,task)
+         .subscribe(() => this.loadTasks);
       }
 
-     updateTask(task:Task){
-         const index = this.tasks
-         .findIndex((x) => x.id === task.id)
-         this.tasks[index] = task;
-     }
+    //  updateTask(task:Task){
+    //      return this.http
+    //      .post(`/api/tasks/${task.id}`,task)
+    //      .subscribe(() => this.loadTasks());
+    //  }
+
+    getProjectTasks(projectId: string) {
+       return this.tasks
+       .asObservable()
+       .pipe(
+           map((tasks) => tasks.filter((task) => task.projectId === projectId))
+       )
+    }
 
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input,Output,EventEmitter } from '@angular/core';
 import { Task, TaskListFilterType } from '../../../../models/models';
 import { TasksService } from '../../../../services/services';
 
@@ -9,48 +9,29 @@ import { TasksService } from '../../../../services/services';
   encapsulation: ViewEncapsulation.None
 })
 export class TaskListComponent {
-
-  tasks: Task[];
-  filteredTasks: Task[];
-  taskFilterTypes: TaskListFilterType[] = ['all', 'open', 'done'];
-  activeTaskFilterType: TaskListFilterType = 'all';
+  
+  @Input() tasks : Task[];
+  @Input() taskFilterTypes: TaskListFilterType[];
+  @Input() activeTaskFilterType: TaskListFilterType;
+  @Output() outAddTask = new  EventEmitter<string>();
+  @Output() outActiveTaskFilterType = new EventEmitter<TaskListFilterType>();
+  @Output() outUpdateTask = new EventEmitter<Task>();
 
   constructor(private taskService: TasksService) {
-    this.tasks = taskService.getTasks();
-    this.filterTasks();
+    
   }
 
-  activateFilterType(type: TaskListFilterType) {
-    this.activeTaskFilterType = type;
-    this.filterTasks();
-  }
-
-  filterTasks() {
-    this.filteredTasks = this.tasks
-      .filter((task: Task) => {
-        if (this.activeTaskFilterType === 'all') {
-          return true;
-        } else if (this.activeTaskFilterType === 'open') {
-          return !task.done;
-        } else {
-          return task.done;
-        }
-      });
-  }
 
   addTask(title: string) {
-    const task: Task = {
-      title, done: false
-    };
-    this.taskService.addTasks(task);
-    this.tasks = this.taskService.getTasks();
-    this.filterTasks();
+     this.outAddTask.emit(title);
+  }
+  activateFilterType(type: TaskListFilterType) {
+    this.outActiveTaskFilterType.emit(type);
   }
 
   updateTask(task: Task) {
-    this.taskService.updateTask(task);
-    this.tasks = this.taskService.getTasks();
-    this.filterTasks();
+    this.outUpdateTask.emit(task);
   }
+
 
 }

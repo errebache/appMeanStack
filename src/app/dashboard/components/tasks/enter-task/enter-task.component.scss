@@ -1,4 +1,10 @@
 app-enter-task {
+    .mat-form-field-infix {
+      padding: 0 !important;
+    }
+    form {
+        display: flex;
+    }
     display: inline-flex;
     align-items: center;
     flex: auto;
@@ -8,10 +14,13 @@ app-enter-task {
         flex-grow: 1;
         margin-right: 20px;
         border: none;
+        border-bottom: 3px solid rgba(0, 0, 0, .12);
         background-color: transparent;
         color: rgba(64, 64, 64, .56);
+        font-size: 18px;
+        font-weight: 500;
     }
-    button{
+    .button{
         display: inline-block;
         padding: 10px 20px;
         border: none;

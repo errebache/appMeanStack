@@ -1,9 +1,21 @@
 
-<div class="container">
-  <div class="row ">
-    <app-task-list></app-task-list>
-  </div>
+<aside class="side-nav">
+    <app-navigation>
+      <app-navigation-section title="Projects">
+        <app-navigation-item *ngFor="let project of projects | async; let first = first;"
+                             [title] = "project?.title"
+                             [navId] = "project?._id"
+                             [class.active]="project._id === idSelected"
+                             (outActivateNavigationItem) = "selectProject($event)"
+                             >
+        </app-navigation-item>
+      </app-navigation-section>
+    </app-navigation>
 
-</div>
+</aside>
  
 
+
+<div class="main">
+  <app-project-container></app-project-container>
+</div>

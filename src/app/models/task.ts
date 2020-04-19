@@ -1,5 +1,6 @@
 export interface Task {
     id?:number;
+    projectId?: string;
     title:string;
     done:boolean;
     status?:string;

@@ -7,13 +7,10 @@
         >Ajouter une tache</button> -->
 
 <form class="example-form">
-       <mat-form-field class="example-full-width">
-              <mat-label>Ajouter une tache</mat-label>
               <input matInput placeholder="Ajouter une tache" 
                      #titleInput
                      class="title-input"
                      >
-       </mat-form-field>
        <button type="button"
        (click)="enterTask(titleInput)"
        mat-button
