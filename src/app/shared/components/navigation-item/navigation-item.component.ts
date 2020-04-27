@@ -11,7 +11,7 @@ import { Component, Input, Output ,EventEmitter, ViewEncapsulation, ChangeDetect
 export class NavigationItemComponent {
 
   @Input() title:string;
-  @Input() navId:string;
+  @Input() navId:any;
   @Output() outActivateNavigationItem = new EventEmitter<any>();
 
 

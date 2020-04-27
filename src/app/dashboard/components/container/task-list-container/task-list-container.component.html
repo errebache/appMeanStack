@@ -1,8 +1,10 @@
+
 <app-task-list
   [tasks]="filteredTasks | async"
   [taskFilterTypes]="taskFilterTypes"
-  [activeTaskFilterType]="activeTaskFilterType | async"
+  [activeTaskFilterType]="activateTaskFilterType | async"
   (outUpdateTask)="updateTask($event)"
-  (outActivateFilterType)="activateFilterType($event)"
-  (outAddTask)="addTask($event)">
+  (outActiveTaskFilterType)="activateFilterType($event)"
+  (outAddTask)="addTask($event)"
+  >
 </app-task-list>

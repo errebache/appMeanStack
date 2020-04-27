@@ -19,12 +19,11 @@ export class ProjectContainerComponent {
     {id: 'activities', title: 'Activities'}
   ];
   activeTab: Tab = this.tabs[0];
+  
 
   constructor(private projectService: ProjectService) {
     this.selectedProject = projectService.getSelectedProject();
-    this.selectedProject.forEach(e=> {
-      this.element = e;
-    })
+
   }
 
   activateTab(tab: Tab) {

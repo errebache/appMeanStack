@@ -8,12 +8,14 @@ import { map } from 'rxjs/operators';
 export class ProjectService {
    
     private projects = new BehaviorSubject<Project[]>([]);
-    private selectedProjectId = new BehaviorSubject<string>(null);
+    private selectedProjectId = new BehaviorSubject<string>("5e8de09e6590993f203880b3");
     private selectedProject: Observable<Project>;
 
     url: string = "http://localhost:3000/projects";
 
     constructor(private http: HttpClient) {
+      this.projects.forEach(e=> console.log(e));
+      
         this.loadProject();
         this.selectedProject = combineLatest(this.projects,this.selectedProjectId)
         .pipe(
@@ -29,8 +31,8 @@ export class ProjectService {
         subscribe((projects) => this.projects.next(projects));
     }
     
-    getSelectedProject() {
-        return this.selectedProject;     
+    getSelectedProject():Observable<Project> {
+       return this.selectedProject;       
     }
 
     getProjects() {

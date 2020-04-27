@@ -3,6 +3,7 @@ import { Task } from '../models/task';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Project } from '../models/models';
 
 @Injectable()
 
@@ -20,7 +21,7 @@ export class  TasksService {
   
 
      constructor(private http: HttpClient) {
-
+         
      }
      
      private loadTasks() {
@@ -46,12 +47,10 @@ export class  TasksService {
     //      .subscribe(() => this.loadTasks());
     //  }
 
-    getProjectTasks(projectId: string) {
-       return this.tasks
-       .asObservable()
-       .pipe(
-           map((tasks) => tasks.filter((task) => task.projectId === projectId))
-       )
+    getProjectTasks(projectId: string):Observable<Task[]> {
+          
+      return this.http.get<Task[]>(`${this.url}/${projectId}`);
+
     }
 
 

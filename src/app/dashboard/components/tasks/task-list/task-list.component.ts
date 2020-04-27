@@ -25,12 +25,13 @@ export class TaskListComponent {
   addTask(title: string) {
      this.outAddTask.emit(title);
   }
+
   activateFilterType(type: TaskListFilterType) {
     this.outActiveTaskFilterType.emit(type);
   }
 
   updateTask(task: Task) {
-    this.outUpdateTask.emit(task);
+   this.outUpdateTask.emit(task);
   }
 
 

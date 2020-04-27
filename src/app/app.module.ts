@@ -10,11 +10,13 @@ import { LoginComponent } from './auth/components';
 import { ServicesModule} from './services/services.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AngularMaterialModule} from './angular-material-module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { CheckboxComponent,ToggleComponent,NavigationComponent,NavigationItemComponent,NavigationSectionComponent,
   TabsComponent,EditorComponent } from './shared/components/components';
 import { TaskListComponent } from './dashboard/components/tasks/task-list/task-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavMenuComponent } from './dashboard/components/nav-menu/nav-menu.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +40,16 @@ import { HttpClientModule } from '@angular/common/http';
     NavigationComponent,
     TabsComponent,
     EditorComponent,
-    ProjectContainerComponent
+    ProjectContainerComponent,
+    NavMenuComponent
   ],
   imports: [
     BrowserModule,
     ServicesModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,8 +17,6 @@ export class ProjectComponent {
 @Input() activeTab : Tab;
 @Output() outActivateTab  = new EventEmitter<Tab>();
 
-
-
  activateTab(tab: Tab) {
   this.outActivateTab.emit(tab);
  }
@@ -36,6 +34,8 @@ updateDescription(description: string) {
     description
   })
 }
+
+
 
 
 }
