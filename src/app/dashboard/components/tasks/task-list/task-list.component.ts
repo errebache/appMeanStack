@@ -16,6 +16,7 @@ export class TaskListComponent {
   @Output() outAddTask = new  EventEmitter<string>();
   @Output() outActiveTaskFilterType = new EventEmitter<TaskListFilterType>();
   @Output() outUpdateTask = new EventEmitter<Task>();
+  @Output() outDeleteTask = new EventEmitter<Task>();
 
   constructor(private taskService: TasksService) {
     
@@ -32,6 +33,10 @@ export class TaskListComponent {
 
   updateTask(task: Task) {
    this.outUpdateTask.emit(task);
+  }
+
+  deleteTask(task: Task) {
+    this.outDeleteTask.emit(task);
   }
 
 

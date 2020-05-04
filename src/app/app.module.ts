@@ -5,7 +5,7 @@ import { AppComponent} from './app.component';
 import {ActivitiesComponent,EffortsComponent,CommentsComponent,TagsComponent,
         ProjectComponent,ProjectsDashboardComponent,UserComponent,EnterTaskComponent,TaskComponent,
         TaskListContainerComponent,ProjectContainerComponent} from './dashboard/components';
-import { LoginComponent } from './auth/components';
+import { LoginComponent, AuthComponent} from './auth/components';
 
 import { ServicesModule} from './services/services.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -17,6 +17,7 @@ import { CheckboxComponent,ToggleComponent,NavigationComponent,NavigationItemCom
 import { TaskListComponent } from './dashboard/components/tasks/task-list/task-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavMenuComponent } from './dashboard/components/nav-menu/nav-menu.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NavMenuComponent } from './dashboard/components/nav-menu/nav-menu.compo
     TagsComponent,
     CommentsComponent,
     LoginComponent,
+    AuthComponent,
     ProjectComponent,
     ProjectsDashboardComponent,
     UserComponent,
@@ -47,6 +49,8 @@ import { NavMenuComponent } from './dashboard/components/nav-menu/nav-menu.compo
     BrowserModule,
     ServicesModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
     AppRoutingModule

@@ -41,11 +41,22 @@ export class  TasksService {
          .subscribe(() => this.loadTasks);
       }
 
-    //  updateTask(task:Task){
-    //      return this.http
-    //      .post(`/api/tasks/${task.id}`,task)
-    //      .subscribe(() => this.loadTasks());
-    //  }
+     updateTask(task:Task){
+        if(task) {
+         return this.http
+         .put(`${this.url}/update/${task._id}`,task)
+         .subscribe(() => this.loadTasks());
+        }
+     }
+
+     deleteTask(task: Task) {
+        if(task) {
+           return this.http
+           .delete(`${this.url}/delete/${task._id}`)
+           .subscribe(() => this.loadTasks());
+        }
+     }
+     
 
     getProjectTasks(projectId: string):Observable<Task[]> {
           

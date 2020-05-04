@@ -6,3 +6,4 @@ export { Comment } from './comment';
 export { User } from './user';
 export { Project } from './project';
 export { Tab } from './tab';
+export { UserResponse } from './userResponse';

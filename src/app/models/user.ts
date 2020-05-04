@@ -1,5 +1,8 @@
 export interface User {
-    readonly id?: string;
-    readonly name: string;
+    username: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+    token?: string;
     readonly pictureUrl: string;
 }

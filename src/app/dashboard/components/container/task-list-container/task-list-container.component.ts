@@ -21,7 +21,7 @@ export class TaskListContainerComponent implements OnInit {
 
     this.selectedProject = this.projectService.getSelectedProject();
 
-    this.filteredTasks.subscribe(task => console.log(task));
+    // this.filteredTasks.subscribe(task => console.log(task));
 
   }
  
@@ -60,7 +60,13 @@ export class TaskListContainerComponent implements OnInit {
     )
   }
 
-  // updateTask(task: Task) {
-  //   this.taskService.updateTask(task);
-  // }
+  updateTask(task: Task) {
+    this.filteredTasks;
+    this.taskService.updateTask(task);
+  }
+
+  deleteTask(task: Task) {
+     this.taskService.deleteTask(task);
+  }
+
 }

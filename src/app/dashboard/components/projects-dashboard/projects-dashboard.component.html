@@ -1,4 +1,6 @@
 <aside class="side-nav">
+    <app-user [user]="user"
+    ></app-user>
     <app-navigation>
     <app-navigation-section title="Projects">
         <app-navigation-item *ngFor="let project of projects | async; let first = first;"

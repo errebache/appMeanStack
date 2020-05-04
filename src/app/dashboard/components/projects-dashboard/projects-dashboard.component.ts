@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ProjectService, TasksService } from '../../../services/services';
+import { ProjectService, TasksService,AuthenticationService } from '../../../services/services';
 import { Observable } from 'rxjs';
-import { Project, Task } from '../../../models/models';
+import { Project, Task, User, UserResponse } from '../../../models/models';
 
 @Component({
   selector: 'app-projects-dashboard',
@@ -16,13 +16,24 @@ export class ProjectsDashboardComponent implements OnInit {
   projects: Observable<Project[]>;
   selectedProject: Observable<Project>;
   idSelected: string;
-  test:any;
-  tasks:Observable<any>
-  constructor(private projectService: ProjectService, private taskService: TasksService) {
+  curentUser: UserResponse;
+  user:User;
+  tasks:Observable<any>;
+  loading = false;
+  currenttest:Observable<User>;
+  constructor(private projectService: ProjectService, 
+    private taskService: TasksService,private authenticateSevice: AuthenticationService) {
   
   }
 
   ngOnInit() {
+
+    this.loading = true;
+    this.curentUser = this.authenticateSevice.currentUserValue;
+
+    this.user = this.curentUser.user;
+    
+    console.log(this.user);
     
     this.projects = this.projectService.getProjects();
     

@@ -1,1 +1,9 @@
-<p>user works!</p>
+<div class="profile">
+   <img [attr.src]= "pictureSafeUrl"  src="" alt="profile">
+</div>
+
+<div class="information">
+    <p class="welcome-text"> Hi {{ user.username }} </p>
+    <p> you got <strong></strong> open tasks</p>
+    <p>No open tasks. !!</p>
+</div>
